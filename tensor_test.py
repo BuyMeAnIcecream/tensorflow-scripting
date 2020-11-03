@@ -38,8 +38,8 @@ train_labels, train_samples = shuffle(train_labels, train_samples);
 scaler = MinMaxScaler(feature_range = (0,1))
 scaled_train_samples = scaler.fit_transform(train_samples.reshape(-1,1))
 
-for i in scaled_train_samples:
-    print(i)
+#for i in scaled_train_samples:
+#    print(i)
 
 input("press close to exit") 
 
@@ -66,8 +66,9 @@ model = Sequential([
 
 model.compile(optimizer = Adam(learning_rate = 0.0001), loss = 'sparse_categorical_crossentropy', metrics = ['accuracy'])
 
-model.fit(x = scaled_train_samples, y = train_labels, batch_size = 10, epochs = 30, shuffle = True, verbose = 2)
+model.fit(x = scaled_train_samples, y = train_labels, validation_split = 0.1, batch_size = 10, epochs = 30, shuffle = True, verbose = 2)
 
  
 
 model.summary()
+
