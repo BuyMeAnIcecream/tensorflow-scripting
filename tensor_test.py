@@ -72,3 +72,13 @@ model.fit(x = scaled_train_samples, y = train_labels, validation_split = 0.1, ba
 
 model.summary()
 
+predictions = model.predict(x = scaled_train_samples, batch_size = 10, verbose = 0)
+for i in predictions:
+    print(i)
+    
+rounded_prediction = np.argmax(predictions, axis = -1)
+
+for i in rounded_prediction:
+    print(i)
+
+
