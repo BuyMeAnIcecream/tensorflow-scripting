@@ -74,13 +74,13 @@ model.fit(x = scaled_train_samples, y = train_labels, validation_split = 0.1, ba
 model.summary()
 
 predictions = model.predict(x = scaled_train_samples, batch_size = 10, verbose = 0)
-for i in predictions:
-    print(i)
+#for i in predictions:
+#    print(i)
     
 rounded_prediction = np.argmax(predictions, axis = -1)
 
-for i in rounded_prediction:
-    print(i)
+#for i in rounded_prediction:
+#    print(i)
 
 
 #PREPROCESS TEST DATA
@@ -116,22 +116,22 @@ test_labels, test_samples = shuffle(test_labels, test_samples);
 scaled_test_samples = scaler.fit_transform(test_samples.reshape(-1,1))
 
 predictions = model.predict(x = scaled_test_samples, batch_size = 10, verbose = 0)
-for i in predictions:
-    print(i)
+#for i in predictions:
+#    print(i)
     
 rounded_prediction = np.argmax(predictions, axis = -1)
 
-for i in rounded_prediction:
-    print(i)
+#for i in rounded_prediction:
+#    print(i)
 
-input("press close to exit") 
+#input("press close to exit") 
 
 #CONFUSION MATRIX
-#%matplotlib inline
+%matplotlib inline
 from sklearn.metrics import confusion_matrix
 import itertools
-import matplotlib
-matplotlib.use("tkagg")
+#import matplotlib
+#matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 
 cm = confusion_matrix(y_true = test_labels, y_pred = rounded_prediction)
@@ -145,10 +145,10 @@ def plot_confusion_matrix(cm, classes,
     Normalization can be applied by setting 'normalize  = True'.
     """
     
-    plt.imshow(cm,interpolation = 'nearest', cmap = cmap)
+    plt.imshow(cm, interpolation = 'nearest', cmap = cmap)
     plt.title(title)
     plt.colorbar()
-    tick_marks = np.arrange(len(classes))
+    tick_marks = np.arange(len(classes))
     plt.xticks(tick_marks, classes, rotation = 45)
     plt.yticks(tick_marks, classes)
     
@@ -160,7 +160,7 @@ def plot_confusion_matrix(cm, classes,
         
     print(cm)
     
-    thresh = cm.max / 2.
+    thresh = cm.max() / 2.
     for i,j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
         plt.text(j, i, cm[i,j],
             horizontalalignment = "center",
@@ -173,5 +173,6 @@ def plot_confusion_matrix(cm, classes,
     
 
     
-    cm_plot_labels = ['no_side_effects', 'had_side_effects']
-    plot_confusion_matrix(cm = cm, classes = cm_plot_labels, title = 'Confusion Matrix')
+cm_plot_labels = ['no_side_effects', 'had_side_effects']
+plot_confusion_matrix(cm = cm, classes = cm_plot_labels, title = 'Confusion Matrix')
+  #  input("press close to exit") 
