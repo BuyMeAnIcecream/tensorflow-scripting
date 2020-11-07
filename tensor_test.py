@@ -176,3 +176,16 @@ def plot_confusion_matrix(cm, classes,
 cm_plot_labels = ['no_side_effects', 'had_side_effects']
 plot_confusion_matrix(cm = cm, classes = cm_plot_labels, title = 'Confusion Matrix')
   #  input("press close to exit") 
+    
+#import os.path
+import os
+if not os.path.exists('models'):
+    os.makedirs('models')
+if os.path.isfile('models\medical_trial_model.h5') is False:
+    model.save('models\medical_trial_model.h5')
+
+
+    
+from tensorflow.keras.models import load_model
+new_model = load_model('models\medical_trial_model.h5')
+new_model.summary()
