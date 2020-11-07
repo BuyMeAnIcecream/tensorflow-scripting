@@ -177,15 +177,24 @@ cm_plot_labels = ['no_side_effects', 'had_side_effects']
 plot_confusion_matrix(cm = cm, classes = cm_plot_labels, title = 'Confusion Matrix')
   #  input("press close to exit") 
     
-#import os.path
+#Saving trained model.
 import os
 if not os.path.exists('models'):
     os.makedirs('models')
 if os.path.isfile('models\medical_trial_model.h5') is False:
     model.save('models\medical_trial_model.h5')
+#If we want to save waits - call model.save_weights
 
-
-    
+#Loading model. Same for weights load_weights()    
 from tensorflow.keras.models import load_model
 new_model = load_model('models\medical_trial_model.h5')
 new_model.summary()
+new_model.get_weights()
+
+#save model as json (no weights)
+#json_string = model.to_json()
+
+#load model as json. have to recompile
+#from tensorflow.keras.models import model_from_json
+#model_architecture = model_from_json(json_string)
+
