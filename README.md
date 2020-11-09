@@ -15,3 +15,10 @@ https://www.tensorflow.org/install/pip#virtual-environment-install
 jupyter lab
 https://jupyter.org/install
 
+cats and dogs data set
+https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data?select=train.zip
+
+GPU
+cuDNN 7.6.5
+CUDA Toolkit 10.1 
+!!!I couldn't hook up all the necessary CUDA dlls with PATH set up so I had to copy them to Windows\System32 
