@@ -139,3 +139,21 @@ test_batches.class_indices
 
 cm_plot_labels = ['cat','dog']
 plot_confusion_matrix(cm = cm, classes = cm_plot_labels, title = 'Confusion Matrix')
+
+
+vgg16_model = tf.keras.applications.vgg16.VGG16()
+#vgg16_model.summary()
+
+#Loop through every except last (vgg16 classifies 1000 classes. we need only 2) and add them to the new model
+model = Sequential()
+for layer in vgg16_model.layers[:-1]:
+    model.add(layer)
+    
+#model.summary()
+
+for layer in model.layers:
+    layer.trainable = False
+
+model.add(Dense(units = 2, activation = 'softmax'))
+
+model.summary()
