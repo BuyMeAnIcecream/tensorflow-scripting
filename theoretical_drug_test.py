@@ -54,7 +54,6 @@ from tensorflow.keras.layers import Activation, Dense
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.metrics import categorical_crossentropy
 
-#TODO figure gpu bs
 physical_dev = tf.config.experimental.list_physical_devices('GPU')
 print("Num GPUs avail: ", len(physical_dev))
 tf.config.experimental.set_memory_growth(physical_dev[0], True)
