@@ -30,3 +30,9 @@ https://www.kaggle.com/kostasdiamantaras/chest-xrays-bacterial-viral-pneumonia-n
 
 cats and dogs data set
 https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data?select=train.zip
+
+theoretical_drug_test - bunch of syntax. putting together first sequential network. loading, saving the model.
+
+dogs_and_cats - images. teaching network to tell 2 classes and using pretrained VGG16 to classify only those
+
+pneumonia_detector - now we have bunch of lung scans. Healthy lungs and with viral and bacterial pneumonia. 
